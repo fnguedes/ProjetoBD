@@ -5,9 +5,9 @@ import styles from '../../Style/Style';
 import TelaDetalheProduto from './TelaDetalheProduto';
 
 export default function (props) {
-    const dados = [{ id: 1, nome: 'Mortadela', categoria: 'Carnes geladas' },
-    { id: 2, nome: 'Pão', categoria: 'Massas' },
-    { id: 3, nome: 'Manteiga', categoria: 'Laticionios' }]
+    const dados = [{ id: 1, nome: 'Mortadela', categoria: 'Carnes', Quantidade:5,VendaM:10 },
+    { id: 2, nome: 'Pão', categoria: 'Massas' ,Quantidade:14,VendaM:3},
+    { id: 3, nome: 'Manteiga', categoria: 'Laticionios' ,Quantidade:3,VendaM:15}]
 
     // const [dados,setDados] = useState([{ id: 1, nome: 'Mortadela', categoria: 'Carnes geladas' },
     // { id: 2, nome: 'Pão', categoria: 'Massas' },
@@ -15,18 +15,11 @@ export default function (props) {
     // console.warn(dados.length)
     // let contador=0;
 
-    console.warn(dados.length)
     return (
 
         <View style={{ flex: 1, backgroundColor: '#777' }}>
             <View style={styles.containerTabela}>
                 <Text style={{ color: '#fff' }}>Tabela de Produtos</Text>
-                {/* <FlatList 
-                showsHorizontalScrollIndicator={false}
-                data={dados}
-                keyExtractor={(item)=>String(item.id)}
-                renderItem={(item)=>{dados.length=item.id}}
-                /> */}
                 <LinhaTitulo />
                 <LinhaNor dados={dados[0]} />
                 <LinhaNor dados={dados[1]} />
@@ -40,7 +33,7 @@ export default function (props) {
                     </Text>
                 </View>
                 <View>
-                    <TouchableOpacity style={styles.localBotao} onPress={() => { props.navigation.navigate("Tela Detalhe Produto") }} >
+                    <TouchableOpacity style={styles.localBotao} onPress={() => { props.navigation.navigate("Tela Detalhe Produto",{dados}) }} >
                         <View style={styles.botao}>
                             <Text style={styles.txtBotao}>
                                 Detalhes

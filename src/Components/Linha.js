@@ -57,3 +57,78 @@ export function LinhaTitulo() {
 
     )
 }
+
+export function LinhaDetalheTitulo() {
+    
+    return (
+        <View style={styles.containerLinhaTiDet}>
+            <View style={styles.linhaTiDet}>
+                <Text style={styles.txtTituloDet}>Id</Text>
+            </View>
+            <View style={styles.linhaCentDet}>
+                <Text style={styles.txtTituloDet}>Nome</Text>
+            </View>
+            <View style={styles.linhaTiDet}>
+                <Text style={styles.txtTituloDet}>Categoria</Text>
+            </View>
+            <View style={styles.linhaCentDet}>
+                <Text style={styles.txtTituloDet}>Quant. Itens</Text>
+            </View>
+            <View style={styles.linhaTiDet}>
+                <Text style={styles.txtTituloDet}>Valor Médio</Text>
+            </View>
+        </View>
+
+
+    )
+}
+
+export function LinhaDetalheNormal(props) {
+    
+    return (
+        <View style={styles.containerLinhaDet}>
+            <View style={styles.linhaNorDet}>
+                <Text style={styles.txtDados}>{props.dados.id}</Text>
+            </View>
+            <View style={styles.linhaCentDet}>
+                <Text style={styles.txtDados}>{props.dados.nome}</Text>
+
+            </View>
+            <View style={styles.linhaNorDet}>
+                <Text style={styles.txtDados}>{props.dados.categoria}</Text>
+
+            </View>
+            <View style={styles.linhaCentDet}>
+                <Text style={styles.txtDados}>{props.dados.Quantidade}</Text>
+
+            </View>
+            <View style={styles.linhaNorDet}>
+                <Text style={styles.txtDados}>{props.dados.VendaM}</Text>
+
+            </View>
+        </View>
+
+    )
+}
+
+export function LinhaDetalheLast(props) {
+    return (
+        <View style={styles.containerLinhaLastDet}>
+            <View style={styles.linhaLastDet}>
+                <Text style={styles.txtDados}>{props.dados.id}</Text>
+            </View>
+            <View style={styles.linhaCentDet}>
+                <Text style={styles.txtDados}>{props.dados.nome}</Text>
+            </View>
+            <View style={styles.linhaNorDet}>
+                <Text style={styles.txtDados}>{props.dados.categoria}</Text>
+            </View>
+            <View style={styles.linhaCentDet}>
+                <Text style={styles.txtDados}>{props.dados.Quantidade}</Text>
+            </View>
+            <View style={styles.linhaLastDet}>
+                <Text style={styles.txtDados}>{props.dados.VendaM}</Text>
+            </View>
+        </View>
+        )
+}

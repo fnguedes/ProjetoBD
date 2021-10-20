@@ -94,7 +94,71 @@ const styles = StyleSheet.create({
     txtDados:{
         fontSize:12,
 
-    }
+    },
+    linhaCentDet:{
+        borderRightWidth:1,
+        borderLeftWidth:1,
+        width:'20%',
+        height:20,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    linhaNorDet:{
+        width:'20%',
+        height:20,
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    linhaTiDet:{
+        width:'20%',
+        height:20,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    linhaLastDet :{
+        width:'20%',
+        height:20,
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    txtTituloDet:{
+        color:"#444",
+        fontWeight:'800',
+        fontSize:10
+    },  
+    containerLinhaDet:{
+        borderBottomWidth:1,
+        borderLeftWidth:1,
+        borderRightWidth:1,
+        width:'90%',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        flexDirection: 'row',   
+        backgroundColor:'#fff'
+    
+    },
+    containerLinhaTiDet:{
+        borderWidth:1,
+        width:'90%',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        flexDirection: 'row',
+        backgroundColor:'#bbf3f9',
+        borderTopRightRadius:15,
+        borderTopLeftRadius:15
+    },
+    containerLinhaLastDet:{
+        width:'90%',
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        flexDirection: 'row',
+        borderBottomWidth:1,
+        borderLeftWidth:1,
+        borderRightWidth:1,
+        backgroundColor:'#fff',
+        borderBottomLeftRadius:15,
+        borderBottomRightRadius:15
+    },
 
   })
   export default styles
