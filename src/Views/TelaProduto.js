@@ -9,12 +9,6 @@ export default function (props) {
     { id: 2, nome: 'Pão', categoria: 'Massas' ,Quantidade:14,VendaM:3},
     { id: 3, nome: 'Manteiga', categoria: 'Laticionios' ,Quantidade:3,VendaM:15}]
 
-    // const [dados,setDados] = useState([{ id: 1, nome: 'Mortadela', categoria: 'Carnes geladas' },
-    // { id: 2, nome: 'Pão', categoria: 'Massas' },
-    // { id: 3, nome: 'Manteiga', categoria: 'Laticionios' }])
-    // console.warn(dados.length)
-    // let contador=0;
-
     return (
 
         <View style={{ flex: 1, backgroundColor: '#777' }}>
@@ -28,9 +22,7 @@ export default function (props) {
 
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 1 }}>
-                    <Text>
-                        Texto pra dizer que eu que fiz hehe
-                    </Text>
+                   
                 </View>
                 <View>
                     <TouchableOpacity style={styles.localBotao} onPress={() => { props.navigation.navigate("Tela Detalhe Produto",{dados}) }} >

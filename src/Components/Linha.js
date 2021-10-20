@@ -19,7 +19,6 @@ export default props => (
 
 export function LinhaNor(props) {
 
-    console.warn(props.dados)
 
     return (
         <View style={styles.containerLinha}>
