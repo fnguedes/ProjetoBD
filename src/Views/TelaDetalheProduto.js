@@ -1,9 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import Tabela from '../Components/Tabela'
+import Linha from '../Components/Linha'
 
 export default function () {
     return (
-        <Tabela>Tela Detalhe</Tabela>
+        <View style={{ flex: 1, backgroundColor: '#777' }}> 
+
+        <Text>Minha benga</Text>
+        </View>
     )
 }
