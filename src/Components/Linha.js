@@ -1,133 +1,104 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import styles from '../../Style/Style'
+import TelaProduto from '../Views/TelaProduto'
 
-export default props => (
-    <View style={styles.containerLinhaLast}>
-        <View style={styles.linhaLast}>
-            <Text style={styles.txtDados}>{props.dados.id}</Text>
-        </View>
-        <View style={styles.linhaCent}>
-            <Text style={styles.txtDados}>{props.dados.nome}</Text>
-        </View>
-        <View style={styles.linhaLast}>
-            <Text style={styles.txtDados}>{props.dados.categoria}</Text>
-        </View>
-    </View>
-
-)
-
-export function LinhaNor(props) {
-
-
+export function Colunas(props) {
+    let produtos = props.dados
+    console.warn(produtos)
+    console.warn(props.tamanho)
     return (
-        <View style={styles.containerLinha}>
-            <View style={styles.linhaNor}>
-                <Text style={styles.txtDados}>{props.dados.id}</Text>
-            </View>
-            <View style={styles.linhaCent}>
-                <Text style={styles.txtDados}>{props.dados.nome}</Text>
+        <View style={styles.containerColunas}>
+            {props.tamanho>=1?
+            <View style={styles.boxColuna} >
+            {props.tamanho >= 1 ?
+                produtos.map((produto) => (
+                    <View key={produto.id} >
+                        <Text style={styles.txtDados}>{produto.id}</Text>
+                    </View>
+                ))
+                : false}
+                </View>:false}
+           
+            {props.tamanho>=2?
+            <View style={styles.boxColuna} >
+            {props.tamanho >= 2 ?
+                produtos.map((produto) => (
+                    <View key={produto.id} >
+                        <Text style={styles.txtDados}>{produto.nome}</Text>
+                    </View>
+                ))
+                : false}
+                </View>:false}
 
-            </View>
-            <View style={styles.linhaNor}>
-                <Text style={styles.txtDados}>{props.dados.categoria}</Text>
+            {props.tamanho>=3?
+            <View style={props.tamanho==3?styles.ult:styles.boxColuna} >
+            {props.tamanho >= 3 ?
+                produtos.map((produto) => (
+                    <View key={produto.id} >
+                        <Text style={styles.txtDados}>{produto.categoria}</Text>
+                    </View>
+                ))
+                : false}
+                </View>:false}
+            {props.tamanho>=4?
+            <View style={styles.boxColuna} >
+            {props.tamanho >= 4 ?
+                produtos.map((produto) => (
+                    <View key={produto.id} >
+                        <Text style={styles.txtDados}>{produto.Quantidade}</Text>
+                    </View>
+                ))
+                : false}
+                </View>:false}
 
-            </View>
+            {props.tamanho==5?
+            <View style={styles.ult} >
+            {props.tamanho == 5 ?
+                produtos.map((produto) => (
+                    <View key={produto.id} >
+                        <Text style={styles.txtDados}>{produto.VendaM}</Text>
+                    </View>
+                ))
+                : false}
+                </View>:false}
+
         </View>
 
     )
 }
 
-export function LinhaTitulo() {
-
+export function LinhaTitulo(props) {
+    console.warn(props.tamanho)
     return (
-        <View style={styles.containerLinhaTi}>
-            <View style={styles.linhaTi}>
-                <Text style={styles.txtTitulo}>Id</Text>
-            </View>
-            <View style={styles.linhaCent}>
-                <Text style={styles.txtTitulo}>Nome</Text>
-            </View>
-            <View style={styles.linhaTi}>
-                <Text style={styles.txtTitulo}>Categoria</Text>
-            </View>
+        <View style={styles.LinhaTitulo}>
+            {props.tamanho >= 1 ?
+                <View style={styles.boxLinhaTi}>
+                    <Text style={styles.txtTitulo}>Id</Text>
+                </View> : false
+            }
+            {props.tamanho >= 2 ?
+                <View style={styles.boxLinhaTi}>
+                    <Text style={styles.txtTitulo}>Nome</Text>
+                </View> : false
+            }
+            {props.tamanho >= 3 ?
+                <View style={props.tamanho==3?styles.ult:styles.boxLinhaTi}>
+                    <Text style={styles.txtTitulo}>Categoria</Text>
+                </View> : false
+            }
+            {props.tamanho >= 4 ?
+                <View style={styles.boxLinhaTi}>
+                    <Text style={styles.txtTitulo}>Quant.</Text>
+                </View> : false
+            }
+            {props.tamanho == 5 ?
+                <View style={styles.ult}>
+                    <Text style={styles.txtTitulo}>Valor M.</Text>
+                </View> : false
+            }
         </View>
 
 
     )
-}
-
-export function LinhaDetalheTitulo() {
-    
-    return (
-        <View style={styles.containerLinhaTiDet}>
-            <View style={styles.linhaTiDet}>
-                <Text style={styles.txtTituloDet}>Id</Text>
-            </View>
-            <View style={styles.linhaCentDet}>
-                <Text style={styles.txtTituloDet}>Nome</Text>
-            </View>
-            <View style={styles.linhaTiDet}>
-                <Text style={styles.txtTituloDet}>Categoria</Text>
-            </View>
-            <View style={styles.linhaCentDet}>
-                <Text style={styles.txtTituloDet}>Quant. Itens</Text>
-            </View>
-            <View style={styles.linhaTiDet}>
-                <Text style={styles.txtTituloDet}>Valor Médio</Text>
-            </View>
-        </View>
-
-
-    )
-}
-
-export function LinhaDetalheNormal(props) {
-    
-    return (
-        <View style={styles.containerLinhaDet}>
-            <View style={styles.linhaNorDet}>
-                <Text style={styles.txtDados}>{props.dados.id}</Text>
-            </View>
-            <View style={styles.linhaCentDet}>
-                <Text style={styles.txtDados}>{props.dados.nome}</Text>
-
-            </View>
-            <View style={styles.linhaNorDet}>
-                <Text style={styles.txtDados}>{props.dados.categoria}</Text>
-
-            </View>
-            <View style={styles.linhaCentDet}>
-                <Text style={styles.txtDados}>{props.dados.Quantidade}</Text>
-
-            </View>
-            <View style={styles.linhaNorDet}>
-                <Text style={styles.txtDados}>{props.dados.VendaM}</Text>
-
-            </View>
-        </View>
-
-    )
-}
-
-export function LinhaDetalheLast(props) {
-    return (
-        <View style={styles.containerLinhaLastDet}>
-            <View style={styles.linhaLastDet}>
-                <Text style={styles.txtDados}>{props.dados.id}</Text>
-            </View>
-            <View style={styles.linhaCentDet}>
-                <Text style={styles.txtDados}>{props.dados.nome}</Text>
-            </View>
-            <View style={styles.linhaNorDet}>
-                <Text style={styles.txtDados}>{props.dados.categoria}</Text>
-            </View>
-            <View style={styles.linhaCentDet}>
-                <Text style={styles.txtDados}>{props.dados.Quantidade}</Text>
-            </View>
-            <View style={styles.linhaLastDet}>
-                <Text style={styles.txtDados}>{props.dados.VendaM}</Text>
-            </View>
-        </View>
-        )
 }
