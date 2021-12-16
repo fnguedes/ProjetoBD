@@ -1,23 +1,53 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { Text, View, StatusBar } from 'react-native';
 import styles from '../../Style/Style';
 import { LinhaTitulo, Colunas } from '../Components/Linha'
+import api from '../../routes/Api';
+import { Appbar } from 'react-native-paper';
 
-export default function (props) {
-    const dados = [{ id: 1, nome: 'Mortadela', categoria: 'Carnes', Quantidade: 5, VendaM: 10 },
-    { id: 2, nome: 'Pão', categoria: 'Massas', Quantidade: 14, VendaM: 3 },
-    { id: 3, nome: 'Manteiga', categoria: 'Laticionios', Quantidade: 3, VendaM: 15 }]
-    console.warn(props.route.params)
+export default class TelaDetalheProduto extends Component {
+    state = { dados: [{ id: -1, nome: '', categoria: '', Quantidade: -1, VendaM: -1 }] }
 
-    return (
-        <View style={{ flex: 1, backgroundColor: '#777',justifyContent:'center',alignItems:'center' }}>
-                <Text style={{ color: '#fff' }}>Tabela de detalhes dos produtos</Text>
-            <View style={styles.containerTabela}>
-                <LinhaTitulo tamanho={Object.keys(dados[0]).length} />
-                <View>
-                    <Colunas tamanho={Object.keys(dados[0]).length} dados={dados} />
+    _goBack = () => this.props.navigation.goBack();
+
+    async getProdutos() {
+        try {
+            const response = await api.get('/detalhes_produtos');
+            console.log(response.data.data);
+            this.setState({ dados: response.data.data });
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    componentDidMount() {
+        this.getProdutos();
+    };
+
+    render() {
+        return (
+            <View style={{flex:1}}> 
+
+                <View style={{ width: "100%", justifyContent: 'flex-start' }}>
+
+                    <StatusBar barStyle="dark-content" />
+                    <Appbar.Header style={{ backgroundColor: '#0D31FF' }}>
+                        <Appbar.BackAction onPress={this._goBack} />
+                        <Appbar.Content title="Detalhes dos Produtos" />
+                        {/* <Appbar.Action icon="refresh" //onPress={() => Atualizar()} 
+                        /> */}
+                    </Appbar.Header>
+                </View>
+                <View style={{ flex: 1, backgroundColor: '#777', justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ color: '#fff' }}>Tabela de detalhes dos produtos</Text>
+                    <View style={styles.containerTabela}>
+                        <LinhaTitulo tamanho={Object.keys(this.state.dados[0]).length} />
+                        <View>
+                            <Colunas tamanho={Object.keys(this.state.dados[0]).length} dados={this.state.dados} />
+                        </View>
+                    </View>
                 </View>
             </View>
-        </View>
-    )
+        )
+    }
 }
